@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:qr_scanner_app/presentation/provider/page_provider.dart';
 import 'package:qr_scanner_app/presentation/screens/directions_page.dart';
 import 'package:qr_scanner_app/presentation/screens/maps_page.dart';
 import 'package:qr_scanner_app/presentation/widgets/custom_floating_buttons.dart';
@@ -31,7 +33,8 @@ class _HomePageBody extends StatelessWidget {
  
   @override
   Widget build(BuildContext context) {
-    const int currentIndex = 0;
+    final selectedPage = Provider.of<PageProvider>(context);
+    final int currentIndex = selectedPage.selectedPage;
 
     switch(currentIndex){
       case 0 :
