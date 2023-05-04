@@ -8,16 +8,16 @@ ScanModel scanModelFromJson(String str) => ScanModel.fromJson(json.decode(str));
 String scanModelToJson(ScanModel data) => json.encode(data.toJson());
 
 class ScanModel {
-  final int id;
-  String type;
+  int? id;
+  String? type;
   final String value;
 
   ScanModel({
-    required this.id,
-    required this.type,
+    this.id,
+    this.type,
     required this.value,
   }) {
-    if (type.contains('http')) {
+    if (value.contains('http')) {
       type = 'http';
     }
     type = 'geo';
