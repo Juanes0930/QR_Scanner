@@ -73,18 +73,19 @@ return response;
     return res.isNotEmpty ? ScanModel.fromJson(res.first) : null;
   }
    /// get all data from Database 
-   Future<List<ScanModel?>> getAllScans(int id) async {
+   Future<List<ScanModel>?> getAllScans() async {
     final db = await database;
     final res = await db!.query('Scans');
-    return res.map((item) => ScanModel.fromJson(item)).toList();
+    return res.isNotEmpty ? res.map((item) => ScanModel.fromJson(item)).toList():null;
+    //return res.map((item) => ScanModel.fromJson(item)).toList();
   }
   
   /// Get data by type 
-  Future<List<ScanModel?>> getScanByType(String type) async {
+  Future<List<ScanModel>> getScanByType(String type) async {
     final db = await database;
     final res = await db!.rawQuery(
       '''
-        SELECT * FROM Scans WHERE type = $type
+        SELECT * FROM Scans WHERE type ='$type'
       ''');
      return res.isNotEmpty 
      ? res.map((item) => ScanModel.fromJson(item)).toList()

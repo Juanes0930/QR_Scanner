@@ -16,11 +16,13 @@ class ScanModel {
     this.id,
     this.type,
     required this.value,
-  }) {
+  }) 
+  {
     if (value.contains('http')) {
       type = 'http';
+    }else {
+      type = 'geo';
     }
-    type = 'geo';
   }
 
   factory ScanModel.fromJson(Map<String, dynamic> json) => ScanModel(
