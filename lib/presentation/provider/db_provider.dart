@@ -22,7 +22,7 @@ class DBProvider {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     final path = join(documentsDirectory.path, 'ScanDB.db');
 
-    print(path);
+
 
     ///Create Database
     return await openDatabase(

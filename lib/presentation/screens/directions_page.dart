@@ -6,6 +6,7 @@ class DirectionsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomListView();
+
+    return const Scaffold( body: CustomListView(type: 'http'));
   }
 }
